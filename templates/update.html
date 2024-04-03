@@ -1,0 +1,19 @@
+{% extends "basefile.html" %} {% block home %}
+{% for i in  alldata %}
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2>Update Contact Record</h2>
+    <form action="/upd/{{i[0]}}" method="post">
+      <div style="margin-bottom: 20px;">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" value="{{i[0]}}"name="updatetitle" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;" required>
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="updatemessage" rows="5" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;" required>{{i[1]}}</textarea>
+      </div>
+      <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Update</button>
+    </form>
+  </div>
+  {% endfor %}
+  
+{% endblock home %}

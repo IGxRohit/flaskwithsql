@@ -1,0 +1,38 @@
+{% extends "basefile.html" %} {% block home %}
+<style>
+    button {
+        color: white;
+        background-color: rgb(18, 184, 18);
+        border-radius: 15%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    button:hover {
+        color: red;
+        background-color: rgb(13, 196, 13);
+        border-radius: 25%;
+        font-family: cursive;
+        font-size: large;
+    }
+</style>
+<h3 style="text-align: center;">All Contact Us Records</h3>
+{% for i in data %}
+<div style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+    <div style="max-width: 1200px; margin: 20px auto; display: flex; flex-wrap: wrap; justify-content: center;">
+        <!-- Example cards -->
+        <div style="width: 300px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px; overflow: hidden; transition: transform 0.3s ease-in-out;">
+            <div style="padding: 20px;">
+                <h2 style="margin-top: 0; font-size: 24px; color: #333;">Title:-{{i[0]}}</h2>
+                <p style="margin: 10px 0; color: #666;">Message:-{{i[1]}}</p>
+                <div style="display: flex;">
+                    <form action="/deletethisdata/{{i[0]}}" method="post">
+                        <button type="submit">Delete</button> </div>
+                </form>
+                <form action="/updatethisdata/{{i[0]}}" method="post">
+                    <button type="submit">Update</button> </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endfor %} {% endblock home %}
